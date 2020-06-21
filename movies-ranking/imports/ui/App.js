@@ -16,6 +16,7 @@ class App extends Component {
         Movies.insert({
             title,
             createdAt: new Date(),
+            ranking: 0,
         });
 
         ReactDOM.findDOMNode(this.refs.textInput).value = '';
