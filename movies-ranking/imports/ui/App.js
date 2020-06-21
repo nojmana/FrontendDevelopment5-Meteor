@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import { Movies } from '../api/movies.js';
@@ -7,6 +8,20 @@ import Movie from './Movie.js';
 
 // App component - represents the whole app
 class App extends Component {
+    handleSubmit(event) {
+        event.preventDefault();
+
+        const title = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+
+        Movies.insert({
+            title,
+            createdAt: new Date(),
+        });
+
+        ReactDOM.findDOMNode(this.refs.textInput).value = '';
+    }
+
+
     renderMovies() {
         return this.props.movies.map((movie) => (
             <Movie key={movie._id} movie={movie} />
@@ -18,6 +33,14 @@ class App extends Component {
       <div className="container">
         <header>
           <h2>List of movies</h2>
+
+          <form className="new-movie" onSubmit={this.handleSubmit.bind(this)} >
+            <input
+              type="title"
+              ref="textInput"
+              placeholder="Type to add a new movie"
+            />
+          </form>
         </header>
 
         <ul>
