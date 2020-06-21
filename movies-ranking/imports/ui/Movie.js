@@ -33,7 +33,7 @@ export default class Movie extends Component {
         <button className="downvote" onClick={this.downvoteMovie.bind(this)}>
           -
         </button>
-        <span className="ranking" style={{width: '20%'}}>Ranking: <b>{this.props.movie.ranking}</b></span>
+        <span className="ranking" style={{width: '20%'}}>Ranking:{this.props.movie.ranking} </span>
       </li>      
       );
     }

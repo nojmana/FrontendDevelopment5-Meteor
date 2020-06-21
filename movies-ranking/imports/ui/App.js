@@ -54,6 +54,6 @@ class App extends Component {
 
 export default withTracker(() => {
     return { 
-        movies: Movies.find({}).fetch(),
+        movies: Movies.find({}, { sort : { ranking : -1} }).fetch(),
     };
 })(App);
