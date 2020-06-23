@@ -22,6 +22,7 @@ class App extends Component {
         });
 
         ReactDOM.findDOMNode(this.refs.textInput).value = '';
+        
     }
 
     changeSortingOrder() {
@@ -40,15 +41,14 @@ class App extends Component {
         return (
         <div className="container">
             <header>
-            <h2>List of movies</h2>
+            <h1>Movies ranking</h1>
 
             <button className="sort" onClick = {this.changeSortingOrder.bind(this)} >
                 &#8645; </button>
 
             <form className="new-movie" onSubmit={this.handleSubmit.bind(this)} >
                 <input
-                type="title"
-                ref="textInput"
+                type="title" ref="textInput"
                 placeholder="Type to add a new movie"
                 />
             </form>

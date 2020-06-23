@@ -21,19 +21,19 @@ export default class Movie extends Component {
   }
 
     render() {
-      return (  
+      return (
       <li className="list">
         <span className="title">{this.props.movie.title} </span>
         <button className="delete" onClick={this.deleteMovie.bind(this)}>
           &times;
         </button>
-        <button className="upvote" onClick={this.upvoteMovie.bind(this)}>
-          +
-        </button>
         <button className="downvote" onClick={this.downvoteMovie.bind(this)}>
           -
         </button>
-        <span className="ranking" style={{width: '20%'}}>Ranking:{this.props.movie.ranking} </span>
+        <button className="upvote" onClick={this.upvoteMovie.bind(this)}>
+          +
+        </button>
+        <span className="ranking" style={{width: '20%'}}>Ranking: {this.props.movie.ranking} </span>
       </li>      
       );
     }
